@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive Dropdown Navigation bar</title>
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: arial;
+            font-size: 13px;
+        }
+
+        .myNav {
+            background-color: #222;
+            min-height: 50px;
+            clear: both;
+            display: flex;
+            color: #fff;
+        }
+
+        .toggle {
+            display: none;
+        }
+
+        .myNav ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .myNav ul li {
+            list-style: none;
+        }
+
+        .myNav>ul>li {
+            float: left;
+            position: relative;
+        }
+
+        .myNav>ul>li>a {
+            display: block;
+            padding: 15px 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .dd-btn {}
+
+        .dd-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 200px;
+            background-color: #fff;
+            border: 1px solid #f1f1f1;
+            box-shadow: 0px 0px 3px #ccc;
+        }
+        .dd-menu li a{
+display: block;
+padding: 15px 15px;
+text-decoration: none;
+color: #222;
+border-bottom: 1px solid #f1f1f1;
+        }
+        .dd-menu li:last-child a{
+border-bottom: 0px;
+        }
+        .dd-menu li a:hover{
+            background-color: #f1f1f1;
+        }
+        .hide{
+            display: none;
+        }
+
+        @media screen and (min-width: 0px) and (max-width: 450px){
+            .myNav{
+                position: fixed;
+                height: 100%;
+                left: 0;
+                width: 250px;                
+            }
+            .toggle{
+                display: block;
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+                text-align: center;
+                 position: fixed;
+                 right: 15px;
+                top: 15px;
+                background-color: #222;
+                color: #fff;
+                cursor: pointer; 
+        }
+
+        .myNav > ul > li{
+            float: none;
+            width: 250px;
+        }
+        .myNav> ul > li >a{
+            background-color: #111;
+            
+        } 
+        .dd-menu{
+            position: relative;
+            width: 250px;
+        }
+        
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="myNav">
+        <div class="toggle"><i class="fa fa-bars"></i></div>
+        <ul>
+            <li><a class="dd-btn" href="#">Home &#8595;<i class="fa fa-angle-down"></i></a>
+                <ul class="dd-menu">
+                    <li><a href="#">Home Style 01</a></li>
+                    <li><a href="#">Home Style 02</a></li>
+                    <li><a href="#">Home Style 03</a></li>
+                    <li><a href="#">Home Style 04</a></li>
+
+                </ul>
+
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a class="dd-btn" href="#">Dropdown 2 &#8595; <i class="fa fa-angle-down"></i></a>
+                <ul class="dd-menu">
+                    <li><a href="#">Home Style 01</a></li>
+                    <li><a href="#">Home Style 02</a></li>
+                    <li><a href="#">Home Style 03</a></li>
+                    <li><a href="#">Home Style 04</a></li>
+
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <script src="responsive.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta name="discription" content="head line">
+	<meta name="author" content="selim reza swadhin">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>button image-RK Tutorial</title>
+	<style type="text/css">
+	
+		body{
+			margin-top:10px;
+			font-family:vendana,sans-serif;
+			}
+			
+	.slideshow-container{
+						width:800px;
+						height:350px;
+						position:relative;
+						margin:auto;
+						border:1px solid green;
+						}
+	.slides{
+			display:none;	
+			}
+			
+	.number{
+			position:absolute;
+			padding:8px 12px;
+			color:#f2f2f2;
+			}
+			
+	.text{
+		text-align:center;
+		font-size:15px;
+		position:absolute;
+		width:100%;
+		padding:8px 16px;
+		bottom:16px;
+		color:#f2f2f2;
+		font-weight:bold;		
+		}
+		
+	.prev,.next{
+				position:absolute;
+				top:50%;
+				color:#f2f2f2;
+				font-weight:bold;
+				padding:10px 10px;
+				font-size:18px;
+				border-radius:0 3px 3px 0;
+				cursor:pointer;
+				}
+				
+	.next{
+		border-radius:3px 0 0 3px;
+		right:0;
+		}
+		
+	.prev:hover,.next:hover{	
+							background-color:rgba(0,0,0,0.8);
+							}
+							
+	img{
+		width:800px;
+		height:350px;
+		}
+		
+	.dots{
+		width:8px;
+		height:8px;
+		display:inline-block;
+		background-color:gray;
+		padding:5px;
+		border-radius:50%;
+		cursor:pointer;
+		}
+		
+	.fade{
+		animation-name:fade;
+		animation-duration:0.5s;
+		}
+		
+	@keyframes fade{
+					from{opacity:0.4}
+					to{opacity:1}
+					}
+		
+	.active, .dots:hover{
+						background-color:#333;
+						}
+	
+	
+	</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+	<div class="slides fade"> <!-- style="display:block; -->
+		<div class="number">1/10</div>
+		<div><img src="pic/1.jpg" alt="" /></div>
+		<div class="text">Caption 1</div>
+	</div>
+	
+	<div class="slides">
+		<div class="number">2/10</div>
+		<div><img src="pic/2.jpg" alt="" /></div>
+		<div class="text">Caption 2</div>
+	</div>
+	
+	<div class="slides">
+		<div class="number">3/10</div>
+		<div><img src="pic/3.jpg" alt="" /></div>
+		<div class="text">Caption 3</div>
+	</div>
+	
+	<div class="slides">  
+		<div class="number">4/10</div>
+		<div><img src="pic/4.jpg" alt="" /></div>
+		<div class="text">Caption 4</div>
+	</div>
+	
+	<div class="slides">  
+		<div class="number">5/10</div>
+		<div><img src="pic/1.jpg" alt="" /></div>
+		<div class="text">Caption 5</div>
+	</div>
+	
+	<div class="slides"> 
+		<div class="number">6/10</div>
+		<div><img src="pic/6.jpg" alt="" /></div>
+		<div class="text">Caption 6</div>
+	</div>
+	
+	<div class="slides">  
+		<div class="number">7/10</div>
+		<div><img src="pic/7.jpg" alt="" /></div>
+		<div class="text">Caption 7</div>
+	</div>
+	
+	<div class="slides">  
+		<div class="number">8/10</div>
+		<div><img src="pic/8.jpg" alt="" /></div>
+		<div class="text">Caption 8</div>
+	</div>
+	
+	<div class="slides">  
+		<div class="number">9/10</div>
+		<div><img src="pic/9.jpg" alt="" /></div>
+		<div class="text">Caption 9</div>
+	</div>
+	
+	<div class="slides">  
+		<div class="number">10/10</div>
+		<div><img src="pic/10.jpg" alt="" /></div>
+		<div class="text">Caption 10</div>
+	</div>
+	
+	<a class="prev" onclick="plusIndex(-1)" >&#10094;</a>
+	<a class="next" onclick="plusIndex(1)">&#10095;</a>
+	
+	</div>
+	<br />
+	
+	<div style="text-align:center;">
+		<div class="dots" onclick="currentSlide(1)"></div>
+		<div class="dots" onclick="currentSlide(2)"></div>
+		<div class="dots" onclick="currentSlide(3)"></div>
+		<div class="dots" onclick="currentSlide(4)"></div>
+		<div class="dots" onclick="currentSlide(5)"></div>
+		<div class="dots" onclick="currentSlide(6)"></div>
+		<div class="dots" onclick="currentSlide(7)"></div>
+		<div class="dots" onclick="currentSlide(8)"></div>
+		<div class="dots" onclick="currentSlide(9)"></div>
+		<div class="dots" onclick="currentSlide(10)"></div>
+	</div>
+	
+	<script type="text/javascript">
+	
+		var Index = 1;
+		
+		function plusIndex(n){
+		
+		showImage(Index += n);	
+		
+		}
+		
+		function currentSlide(n){
+		
+		showImage(Index = n); //magic +=n;	
+		
+		}
+		
+		showImage(Index);
+		
+		function showImage(n){
+		
+		        var i;
+				var x = document.getElementsByClassName('slides');
+				var y = document.getElementsByClassName('dots');
+				
+				if(n > x.length){Index = 1};
+				if(n < 1){Index = x.length};
+				for (i = 0; i < x.length; i++){
+				
+					x[i].style.display = "none";
+				
+				};
+			x[Index - 1].style.display = "block";
+			
+				for(i = 0; i < y.length; i++){
+				
+					y[i].className = y[i].className.replace(" active","");
+				
+				}
+			
+			y[Index - 1].className += " active "; // not "active" ofcourse whitespace so magic.
+		}
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Slideshow-Traversy Media</title>
+	<style type="text/css">
+		body {
+			margin-left: 35%;
+			margin-top: 10%;
+		}
+
+		img {
+			border: 1px solid green;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<img name="slide" width="500" height="300"/>
+
+	<script type="text/javascript">
+		var i = 0; //start point
+		var images = [];
+	    var time = 1000;
+
+		//images list
+		images[0] = 'pic/a.jpg';
+		images[1] = 'pic/b.jpg';
+		images[2] = 'pic/c.jpg';
+		images[3] = 'pic/r.jpg';
+		images[4] = 'pic/d.jpg';
+		images[5] = 'pic/e.jpg';
+		images[6] = 'pic/1.jpg';
+		images[7] = 'pic/12.jpg';
+		images[8] = 'pic/23.jpg';
+		images[9] = 'pic/24.jpg';
+		images[10] = 'pic/25.jpg';
+		images[11] = 'dnld/1.jpg';
+		images[12] = 'dnld/q.jpg';
+		images[13] = 'dnld/3.jpg';
+		images[14] = 'dnld/a.jpg';
+
+		//change images
+		function changeImg() {
+
+			document.slide.src =images[i];
+
+			if (i < images.length - 1) {
+
+				i++;
+				
+			} else {
+				i = 0;
+			}
+
+			setTimeout("changeImg()", time);
+		}
+
+		window.onload = changeImg;
+	</script>
+</body>
+
+</html>

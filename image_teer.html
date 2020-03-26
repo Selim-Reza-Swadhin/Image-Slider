@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	
+		#container{
+		width:80%;
+		height:450px;
+		border:1px solid black;
+		margin:0 auto;
+		position:relative;
+		}
+		
+		#container>img{
+					width:100%;
+					height:100%;
+					position:absolute;
+					}
+		
+		#container .btn{
+					position:absolute;
+					width:50px;
+					height:50px;
+					border:none;
+					border-radius:25px;
+					top:200px;
+					background-color:black;
+					color:white;
+					font-size:20px;
+                    cursor:pointer;					
+					}
+					
+		#container #btn1:hover{
+		box-shadow:10px 0px 20px 0px black;
+		}
+		
+		#container #btn2:hover{
+		box-shadow:-10px 0px 20px 0px black;
+		}
+		
+		#container #btn2{
+						position:relative;
+						float:right;
+						}
+	
+	</style>
+</head>
+<body>
+	<div id="container">
+	
+		<img class="slides" src="pic/a.jpg" alt="" />
+		<img class="slides" src="pic/b.jpg" alt="" />
+		<img class="slides" src="pic/c.jpg" alt="" />
+		<img class="slides" src="pic/d.jpg" alt="" />
+		<img class="slides" src="pic/e.jpg" alt="" />
+		<img class="slides" src="pic/f.jpg" alt="" />
+		<img class="slides" src="pic/g.jpg" alt="" />
+		<img class="slides" src="pic/h.jpg" alt="" />
+		<img class="slides" src="pic/i.jpg" alt="" />
+		<img class="slides" src="pic/j.jpg" alt="" />
+		<img class="slides" src="pic/k.jpg" alt="" />
+	    
+		<button class="btn" onclick = "plusIndex(-1)" id="btn1">&#10094;</button>
+		<button class="btn" onclick = "plusIndex(1)" id="btn2">&#10095;</button>
+	</div>
+
+
+<script type="text/javascript">
+
+	var index = 1;
+	
+	function plusIndex(n){
+	
+		index = index + n; //1 for click
+		showImage(index);
+	}
+	
+	showImage(1);
+	
+	function showImage(n){
+	
+	    var i;
+		
+		var x = document.getElementsByClassName('slides');
+		//alert(x.length);
+		
+		if(n > x.length){index = 1};
+		if(n < 1 ){index = x.length};
+		
+		for(i=0; i<x.length; i++){
+		
+		    x[i].style.display = "none";//[i], i=i+1
+		
+		  }
+		  
+	x[index - 1].style.display = "block";
+	
+	}
+	
+	//autoslides start
+	
+	autoSlide();
+	
+	function autoSlide(){
+	
+	    var i;		
+		var x = document.getElementsByClassName('slides');
+		
+	//alert('hi')
+	
+	    if(index > x.length){index = 1};
+		
+		for(i=0; i<x.length; i++){
+		
+		    x[i].style.display = "none";
+		
+		  }		
+		
+	      x[index - 1].style.display = "block";
+	      index++;
+	
+	  setTimeout(autoSlide,1000);
+	
+	}
+
+</script>
+</body>

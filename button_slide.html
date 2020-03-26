@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+	<meta name="discription" content="head line">
+	<meta name="author" content="selim reza swadhin">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>button image-RK Tutorial</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			font-family: vendana, sans-serif;
+		}
+
+		.slideshow-container {
+			width: 800px;
+			position: relative;
+			margin: auto;
+		}
+
+		.slides {
+			display: none;
+		}
+
+		.number {
+			position: absolute;
+			padding: 8px 12px;
+			color: #f2f2f2;
+		}
+
+		.text {
+			text-align: center;
+			font-size: 15px;
+			position: absolute;
+			width: 100%;
+			padding: 8px 16px;
+			bottom: 16px;
+			color: #f2f2f2;
+			font-weight: bold;
+		}
+
+		.prev,
+		.next {
+			position: absolute;
+			top: 40%;
+			color: #f2f2f2;
+			font-weight: bold;
+			padding: 10px 10px;
+			font-size: 18px;
+			border-radius: 0 3px 3px 0;
+			cursor: pointer;
+		}
+
+		.next {
+			border-radius: 3px 0 0 3px;
+			right: 0;
+		}
+
+		.prev:hover,
+		.next:hover {
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+
+		img {
+			width: 800px;
+			height: 350px;
+		}
+
+		.dots {
+			width: 10px;
+			height: 10px;
+			display: inline-block;
+			background-color: gray;
+			padding: 5px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+
+		.fade {
+			animation-name: fade;
+			animation-duration: 0.5s;
+		}
+
+		@keyframes fade {
+			from {
+				opacity: 0.4
+			}
+
+			to {
+				opacity: 1
+			}
+		}
+
+		.active,
+		.dots:hover {
+			background-color: #333;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="slideshow-container">
+
+		<div class="slides fade">
+			<div class="number">1/5</div>
+			<div>
+				<img src="pic/1.jpg" alt="" />1</div>
+			<div class="text">Caption 1</div>
+		</div>
+
+		<div class="slides">
+			<div class="number">2/5</div>
+			<div>
+				<img src="pic/2.jpg" alt="" />2</div>
+			<div class="text">Caption 2</div>
+		</div>
+
+		<div class="slides">
+			<div class="number">3/5</div>
+			<div>
+				<img src="pic/3.jpg" alt="" />3</div>
+			<div class="text">Caption 3</div>
+		</div>
+
+		<div class="slides">
+			<!-- style="display:block; -->
+			<div class="number">4/5</div>
+			<div>
+				<img src="pic/4.jpg" alt="" />4</div>
+			<div class="text">Caption 4</div>
+		</div>
+
+		<div class="slides">
+			<!-- style="display:block; -->
+			<div class="number">5/5</div>
+			<div>
+				<img src="dnld/q.jpg" alt="" />4</div>
+			<div class="text">Caption 4</div>
+		</div>
+
+
+		<a class="prev" onclick="plusIndex(-1)">&#10094;</a>
+		<a class="next" onclick="plusIndex(1)">&#10095;</a>
+
+	</div>
+	<br />
+
+	<div style="text-align:center;">
+		<div class="dots" onclick="currentSlide(1)"></div>
+		<div class="dots" onclick="currentSlide(2)"></div>
+		<div class="dots" onclick="currentSlide(3)"></div>
+		<div class="dots" onclick="currentSlide(4)"></div>
+	</div>
+
+	<script type="text/javascript">
+		var slideIndex = 1;
+
+		function plusIndex(n) {
+
+			showImage(slideIndex += n);
+
+		}
+
+		function currentSlide(n) {
+
+			showImage(slideIndex = n); //magic +=n;	
+
+		}
+
+		showImage(slideIndex);
+
+		function showImage(n) {
+
+			var i;
+			var slide = document.getElementsByClassName('slides');
+			var dots = document.getElementsByClassName('dots');
+
+			if (n > slide.length) {
+				slideIndex = 1
+			};
+			if (n < 1) {
+				slideIndex = slide.length
+			};
+
+			for (i = 0; i < slide.length; i++) {
+
+				slide[i].style.display = "none";
+
+			};
+
+			slide[slideIndex - 1].style.display = "block";
+
+			for (i = 0; i < dots.length; i++) {
+
+				dots[i].className = dots[i].className.replace(" active", "");
+
+			}
+
+			dots[slideIndex - 1].className += " active "; // not "active" offcourse whitespace so magic.
+		}
+	</script>
+</body>
+
+</html>

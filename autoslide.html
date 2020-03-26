@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+	<meta name="description" content="head line">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Selim reza swadhin">
+	<meta charset="UTF-8">
+	<title>Autoslide-RK </title>
+	<style type="text/css">
+		#container {
+			width: 80%;
+			height: 450px;
+			border: 1px solid black;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		#container>img {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+
+		#container .btn {
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			border: none;
+			border-radius: 25px;
+			top: 200px;
+			background-color: black;
+			color: white;
+			font-size: 20px;
+			cursor: pointer;
+		}
+
+		#container #btn1:hover {
+			box-shadow: 10px 0px 20px 0px black;
+		}
+
+		#container #btn2:hover {
+			box-shadow: -10px 0px 20px 0px black;
+		}
+
+		#container #btn2 {
+			position: relative;
+			float: right;
+		}
+
+		body{background-color:#333}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+
+		<img class="slides" src="dnld/a.jpg" alt="" />
+		<img class="slides" src="dnld/b.jpg" alt="" />
+		<img class="slides" src="dnld/c.jpg" alt="" />
+		<img class="slides" src="dnld/d.jpg" alt="" />
+		<img class="slides" src="dnld/e.jpg" alt="" />
+		<img class="slides" src="dnld/f.jpg" alt="" />
+		<img class="slides" src="dnld/g.jpg" alt="" />
+		<img class="slides" src="dnld/h.jpg" alt="" />
+		<img class="slides" src="dnld/i.jpg" alt="" />
+		<img class="slides" src="dnld/j.jpg" alt="" />
+		<img class="slides" src="dnld/k.jpg" alt="" />
+		<img class="slides" src="dnld/l.jpg" alt="" />
+		<img class="slides" src="dnld/m.jpg" alt="" />
+		<img class="slides" src="dnld/n.jpg" alt="" />
+		<img class="slides" src="pic/selim.jpeg" alt="" />
+		<img class="slides" src="pic/saddam.jpeg" alt="" />
+		<img class="slides" src="pic/urmi.jpeg" alt="" />
+		<img class="slides" src="pic/usha.jpeg" alt="" />
+		<img class="slides" src="photo/usha.jpeg" alt="" />
+		<img class="slides" src="photo/usha1.jpeg" alt="" />
+		<img class="slides" src="photo/usha2.jpeg" alt="" />
+		<img class="slides" src="photo/sharmin.jpeg" alt="" />
+		<img class="slides" src="dnld/p.jpg" alt="" />
+		<img class="slides" src="dnld/q.jpg" alt="" />
+		<img class="slides" src="dnld/r.jpg" alt="" />
+		<img class="slides" src="dnld/r1.jpg" alt="" />
+		<img class="slides" src="dnld/r2.jpg" alt="" />
+		<img class="slides" src="dnld/s.jpg" alt="" />
+		<img class="slides" src="dnld/s1.jpg" alt="" />
+		<img class="slides" src="dnld/s2.jpg" alt="" />
+		<img class="slides" src="dnld/s3.jpg" alt="" />
+		<img class="slides" src="dnld/s4.jpg" alt="" />
+		<img class="slides" src="dnld/ss.jpg" alt="" />
+		<img class="slides" src="dnld/t.jpg" alt="" />
+		<img class="slides" src="dnld/t2.jpg" alt="" />
+		<img class="slides" src="dnld/t3.jpg" alt="" />
+		<img class="slides" src="dnld/w.jpg" alt="" />
+		<img class="slides" src="dnld/w1.jpg" alt="" />
+		<img class="slides" src="dnld/w2.jpg" alt="" />
+
+		<button class="btn" onclick="plusIndex(-1)" id="btn1">&#10094;</button>
+		<button class="btn" onclick="plusIndex(1)" id="btn2">&#10095;</button>
+	</div>
+
+	<script type="text/javascript">
+		var index = 1;
+
+		function plusIndex(n) {
+
+			index = index + n;
+			showImage(index);
+			// showImage(index +=n);
+
+		}	
+
+// onclick slide start
+
+		function showImage(n) {
+
+			var i;
+			var x = document.getElementsByClassName('slides');
+			//alert(x.length);
+			if (n > x.length) {
+				index = 1
+			};
+			if (n < 1) {
+				index = x.length
+			};
+
+			for (i = 0; i < x.length; i++) {
+
+				x[i].style.display = "none";
+
+			}
+			x[index - 1].style.display = "block";
+			// index++;
+			
+		}
+
+		// showImage(1);
+		showImage(index);
+
+		
+
+
+
+		// autoslide start	
+
+		function autoSlide() {
+			var i;
+			var x = document.getElementsByClassName('slides');
+			//alert('hi');
+
+			if (index > x.length) {
+				index = 1
+			};
+
+			for (i = 0; i < x.length; i++) {
+
+				x[i].style.display = "none";
+
+			}
+			x[index - 1].style.display = "block";
+			index++;
+
+			setTimeout(autoSlide, 1000);
+		}
+
+		<!-- autoSlide();  -->
+	</script>
+</body>
+
+</html>
